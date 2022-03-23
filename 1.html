@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grade History</title>
+    <style>
+        * {
+            margin: 0 0;
+            padding: 0 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            padding: 10px 10px;
+        }
+
+        .nav1 {
+            background-color: #000000;
+            color: white;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #80808029;
+        }
+
+        .design {
+            margin: 10px 15px;
+            padding: 10px 40px;
+            border-radius: 25px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .btn {
+            margin: 10px 10px;
+            padding: 10px 40px;
+            border-radius: 25px;
+            font-size: 25px;
+        }
+
+        .detail {
+            margin: 15px 410px;
+            width: 701px;
+            height: 175px;
+            border: none;
+            font-size: 23px;
+            text-align: justify;
+        }
+
+        .sems {
+            margin: 25px 315px;
+            width: 700px;
+            border: 2px solid black;
+            height: 200px;
+            background-color: #80808029;
+        }
+
+        .sems>tr,
+        .sems>th {
+            border: 1px solid #80808029;
+        }
+
+        .sems tr td {
+            border: 1px solid #80808029;
+            padding: 0 20px;
+            font-size: 20px;
+            width: 80px;
+        }
+
+        .ab {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid whitesmoke;
+            margin: 50px 100px;
+            flex-direction: column;
+            background-color: whitesmoke;
+        }
+
+        #a0 {
+            display: none;
+        }
+
+        #a1 {
+            display: none;
+        }
+
+        #a2 {
+            display: none;
+        }
+
+        #a3 {
+            display: none;
+        }
+
+        #a4 {
+            display: none;
+        }
+
+        #ab1 {
+            display: none;
+        }
+    </style>
+    <script>
+        var student = [{ name: "Vivek Dhameliya", Enrolment: "190010107001", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AB", BEE: "AA", EGD: "AA", PHYSICS: "AB" } }, { SEM: 3, sub: { ETC: "AA", DS: "AA", DBMS: "BB", DF: "AA" } }] },
+        { name: "Jay Kapuriya", Enrolment: "190010107002", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Smit Dholiya", Enrolment: "190010107003", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Ajay Kapuriya", Enrolment: "190010107004", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Savan Ghori", Enrolment: "190010107005", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Chirag Haraniya", Enrolment: "190010107006", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "sunil patel", Enrolment: "190010107007", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Ramesh Desai", Enrolment: "190010107008", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Jenil shah ", Enrolment: "190010107009", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] },
+        { name: "Parth ramani", Enrolment: "190010107010", Branch: "Computer Engineering", sem: [{ SEM: 1, sub: { PPS: "AA", BME: "AB", BE: "AA", MATHS: "AA" } }, { SEM: 2, sub: { ENG: "AA", BEE: "AB", EGD: "AA", PHYSICS: "AA" } }, { SEM: 3, sub: { ETC: "AA", DS: "AB", DBMS: "AA", DF: "AA" } }] }
+        ];
+
+        var data1 = JSON.stringify(student);
+        var data = JSON.parse(data1);
+
+        function f1() {
+            var ab = document.getElementById("src").value;
+
+            for (i = 0; i < 10; i++) {
+                if (ab === data[i].Enrolment) {
+                    document.getElementById("ab1").style.display = "inline-block";
+                    document.getElementById("a0").style.display = "inline-block";
+                    document.getElementById("a1").style.display = "inline-block";
+                    document.getElementById("a2").style.display = "inline-block";
+                    document.getElementById("a3").style.display = "inline-block";
+
+                    document.getElementById("p1").innerHTML = data[i]["name"];
+                    document.getElementById("p2").innerHTML = data[i]["Enrolment"];
+                    document.getElementById("p3").innerHTML = data[i]["Branch"];
+
+                    document.getElementById("sem_1").innerHTML = "SEM " + data[i].sem[0].SEM;
+                    document.getElementById("g1").innerHTML = data[i].sem[0].sub.PPS;
+                    document.getElementById("g2").innerHTML = data[i].sem[0].sub.BME;
+                    document.getElementById("g3").innerHTML = data[i].sem[0].sub.BE;
+                    document.getElementById("g4").innerHTML = data[i].sem[0].sub.MATHS;
+
+                    document.getElementById("sem_2").innerHTML = "SEM " + data[i].sem[1].SEM;
+                    document.getElementById("g5").innerHTML = data[i].sem[1].sub.ENG;
+                    document.getElementById("g6").innerHTML = data[i].sem[1].sub.BEE;
+                    document.getElementById("g7").innerHTML = data[i].sem[1].sub.EGD;
+                    document.getElementById("g8").innerHTML = data[i].sem[1].sub.PHYSICS;
+
+                    document.getElementById("sem_3").innerHTML = "SEM " + data[i].sem[2].SEM;
+                    document.getElementById("g9").innerHTML = data[i].sem[2].sub.ETC;
+                    document.getElementById("g10").innerHTML = data[i].sem[2].sub.DS;
+                    document.getElementById("g11").innerHTML = data[i].sem[2].sub.DBMS
+                    document.getElementById("g12").innerHTML = data[i].sem[2].sub.DF;
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="nav1">
+        <h1>Student Grade History</h1>
+    </div>
+    <div class="nav">
+        <input type="text" name="search" class="design" id="src" placeholder="Enter Your Enrollment No">
+        <button class="btn" onclick="f1()">Search</button>
+    </div>
+    <div class="ab" id="ab1">
+        <div id="a0">
+            <table class="detail">
+                <tr>
+                    <th>Name</th>
+                    <td id="p1"></td>
+                </tr>
+                <tr>
+                    <th>Enrollment No</th>
+                    <td id="p2"></td>
+                </tr>
+                <tr>
+                    <th>Branch</th>
+                    <td id="p3"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- This is table 1 -->
+        <div id="a1">
+            <table class="sems">
+                <tr>
+                    <th colspan="2" id="sem_1"></th>
+                </tr>
+                <tr>
+                    <th>SUBJECT</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>PPS</td>
+                    <td id="g1"></td>
+                </tr>
+                <tr>
+                    <td>BME</td>
+                    <td id="g2"></td>
+                </tr>
+                <tr>
+                    <td>BE</td>
+                    <td id="g3"></td>
+                </tr>
+                <tr>
+                    <td>MATHS</td>
+                    <td id="g4"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- This is table 2 -->
+        <div id="a2">
+            <table class="sems">
+                <tr>
+                    <th colspan="2" id="sem_2"></th>
+                </tr>
+                <tr>
+                    <th>SUBJECT</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>ENG</td>
+                    <td id="g5"></td>
+                </tr>
+                <tr>
+                    <td>BEE</td>
+                    <td id="g6"></td>
+                </tr>
+                <tr>
+                    <td>EGD</td>
+                    <td id="g7"></td>
+                </tr>
+                <tr>
+                    <td>PHYSICS</td>
+                    <td id="g8"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- This is table 3 -->
+        <div id="a3">
+            <table class="sems">
+                <tr>
+                    <th colspan="2" id="sem_3"></th>
+                </tr>
+                <tr>
+                    <th>SUBJECT</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>ETC</td>
+                    <td id="g9"></td>
+                </tr>
+                <tr>
+                    <td>DS</td>
+                    <td id="g10"></td>
+                </tr>
+                <tr>
+                    <td>DBMS</td>
+                    <td id="g11"></td>
+                </tr>
+                <tr>
+                    <td>DF</td>
+                    <td id="g12"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

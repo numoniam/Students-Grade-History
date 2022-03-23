@@ -1,0 +1,100 @@
+* {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    padding: 10px 10px;
+}
+
+.nav1 {
+    background-color: #000000;
+    color: white;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #80808029;
+}
+
+.design {
+    margin: 10px 15px;
+    padding: 10px 40px;
+    border-radius: 25px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.btn {
+    margin: 10px 10px;
+    padding: 10px 40px;
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+.detail {
+    margin: 15px 410px;
+    width: 701px;
+    height: 175px;
+    border: none;
+    font-size: 23px;
+    text-align: justify;
+}
+
+.sems {
+    margin: 25px 315px;
+    width: 700px;
+    border: 2px solid black;
+    height: 200px;
+    background-color: #80808029;
+}
+
+.sems>tr,
+.sems>th {
+    border: 1px solid #80808029;
+}
+
+.sems tr td {
+    border: 1px solid #80808029;
+    padding: 0 20px;
+    font-size: 20px;
+    width: 80px;
+}
+
+.ab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid whitesmoke;
+    margin: 50px 100px;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+#a0 {
+    display: none;
+}
+
+#a1 {
+    display: none;
+}
+
+#a2 {
+    display: none;
+}
+
+#a3 {
+    display: none;
+}
+
+#a4 {
+    display: none;
+}
+
+#ab1 {
+    display: none;
+}
